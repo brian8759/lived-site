@@ -1,0 +1,3 @@
+(function(){const b=document.querySelectorAll("[data-lang-button]"),s=document.querySelectorAll("[data-lang]");
+function setLang(l){s.forEach(e=>e.hidden=e.dataset.lang!==l);b.forEach(x=>x.setAttribute("aria-pressed",x.dataset.langButton===l?"true":"false"));document.documentElement.lang=l==="zh-Hans"?"zh-Hans":"en";try{localStorage.setItem("lived-site-lang",l)}catch(e){}}
+b.forEach(x=>x.addEventListener("click",()=>setLang(x.dataset.langButton)));let l="en";try{l=localStorage.getItem("lived-site-lang")||((navigator.language||"").toLowerCase().startsWith("zh")?"zh-Hans":"en")}catch(e){}setLang(l)})();
